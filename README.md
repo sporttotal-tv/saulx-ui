@@ -16,3 +16,4 @@ Component library for data authoring apps
 - Option
 - Label
 - Datepicker
+- Multi select
