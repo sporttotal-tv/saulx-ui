@@ -15,3 +15,4 @@ Component library for data authoring apps
 - Checkbox
 - Option
 - Label
+- Datepicker
