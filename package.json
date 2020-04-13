@@ -1,0 +1,17 @@
+{
+  "name": "@saulx/ui",
+  "version": "0.1.0",
+  "main": "./src",
+  "scripts": {
+    "dev": "aristotle index.js",
+    "build": "aristotle index.js dist/index.js"
+  },
+  "devDependencies": {
+    "@saulx/aristotle": "^1.6.19",
+    "react-dom": "^16.13.0"
+  },
+  "dependencies": {
+    "react": "^16.13.0",
+    "@saulx/hub": "^2.4.8"
+  }
+}
