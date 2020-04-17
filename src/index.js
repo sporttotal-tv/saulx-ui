@@ -11,6 +11,7 @@ import List from "./List";
 import Tag from "./Tag";
 import Input from "./input/Input";
 import Search from "./input/Search";
+import Loader from "./Loader";
 
 export {
   Title,
@@ -26,4 +27,5 @@ export {
   Input,
   Search,
   modal,
+  Loader,
 };
