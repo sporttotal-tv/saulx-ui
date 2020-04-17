@@ -7,7 +7,6 @@ export default ({ style, children, props }) => {
       style={{
         fontWeight: "bold",
         fontSize: 18,
-        letterSpacing: "0.5px",
         ...style,
       }}
       {...props}
