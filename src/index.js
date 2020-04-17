@@ -10,8 +10,10 @@ import Overlay from "./overlay/Overlay";
 import List from "./List";
 import Tag from "./Tag";
 import Input from "./input/Input";
+import TextArea from "./input/TextArea";
 import Search from "./input/Search";
 import Loader from "./Loader";
+import Switch from "./button/Switch";
 
 export {
   Title,
@@ -28,4 +30,6 @@ export {
   Search,
   modal,
   Loader,
+  Switch,
+  TextArea,
 };

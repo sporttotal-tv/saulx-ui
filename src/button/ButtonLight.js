@@ -14,17 +14,31 @@ const ButtonLight = ({ style, children, to, active, onClick }) => {
         ...style,
       }}
     >
-      <Link
-        style={{
-          fontFamily:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-          fontSize: 14,
-        }}
-        to={to}
-        onClick={onClick}
-      >
-        {children}
-      </Link>
+      {!to ? (
+        <div
+          style={{
+            cursor: "pointer",
+            fontFamily:
+              '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+            fontSize: 14,
+          }}
+          onClick={onClick}
+        >
+          {children}
+        </div>
+      ) : (
+        <Link
+          style={{
+            fontFamily:
+              '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+            fontSize: 14,
+          }}
+          to={to}
+          onClick={onClick}
+        >
+          {children}
+        </Link>
+      )}
     </div>
   );
 };
