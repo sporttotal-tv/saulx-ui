@@ -1,13 +1,14 @@
 import React from "react";
 
-export default ({ style, children, singleLine }) => {
+export default ({ style, children, singleLine, onClick }) => {
   if (singleLine) {
     return (
       <div
+        onClick={onClick}
         style={{
           fontFamily:
             '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-          fontSize: 16,
+          fontSize: 12,
           whiteSpace: "nowrap",
           textOverflow: "ellipsis",
           overflow: "hidden",
@@ -21,10 +22,11 @@ export default ({ style, children, singleLine }) => {
   } else {
     return (
       <div
+        onClick={onClick}
         style={{
           fontFamily:
             '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-          fontSize: 16,
+          fontSize: 12,
           ...style,
         }}
       >

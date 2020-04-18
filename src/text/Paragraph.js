@@ -7,6 +7,7 @@ export default ({ style, children, props }) => {
       style={{
         letterSpacing: "0.2px",
         lineHeight: "20px",
+        fontSize: 14,
         ...style,
       }}
       {...props}

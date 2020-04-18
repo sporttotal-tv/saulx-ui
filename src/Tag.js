@@ -10,6 +10,7 @@ export default ({ children, style, onClick }) => {
         paddingRight: 5,
         paddingTop: 2.5,
         paddingBottom: 2.5,
+        cursor: "pointer",
         // borderRadius: 2.5,
         ...style,
       }}

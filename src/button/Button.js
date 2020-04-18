@@ -22,9 +22,13 @@ const Button = ({ style, children, to, active, onClick }) => {
         padding: 5,
         fontFamily:
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-        fontSize: 14,
+        fontSize: 12,
         paddingBottom: 5,
         border: "1px solid black",
+        transition: "box-shadow 0.15s",
+        ":hover": {
+          boxShadow: "0px 0px 10px rgba(215,215,225,1)",
+        },
         ...style,
       }}
       to={to}

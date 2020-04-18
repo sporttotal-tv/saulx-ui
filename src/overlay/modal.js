@@ -72,7 +72,7 @@ const Modal = ({ title, children, confirm, cancel }) => {
     <div
       style={{
         backgroundColor: "white",
-        width: 700,
+        width: 600,
         maxWidth: "calc(100%-100px)",
         height: "auto",
         maxHeight: "calc(100%-100px)",
@@ -110,7 +110,7 @@ const Modal = ({ title, children, confirm, cancel }) => {
       >
         <div
           style={{
-            overflow: "scroll",
+            overflow: "auto",
             height: "auto",
             maxHeight: "calc(100vh-200px)",
           }}

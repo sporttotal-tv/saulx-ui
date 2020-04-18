@@ -6,7 +6,7 @@ export default ({ style, children, props }) => {
     <Base
       style={{
         fontWeight: "bold",
-        fontSize: 18,
+        fontSize: 16,
         ...style,
       }}
       {...props}

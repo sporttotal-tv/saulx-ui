@@ -1,17 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-export default ({ style, onChange, value, placeholder }) => {
+export default ({ style, onChange, value, placeholder, debounce }) => {
   const [state, setInternal] = useState();
+  const ref = useRef();
+  const [tmpInternal, setTmpInternal] = useState(false);
 
-  const useInternal = value === undefined;
+  const useInternal = tmpInternal || value === undefined;
+
+  useEffect(() => {
+    () => {
+      clearTimeout(ref.timeout);
+    };
+  }, [ref]);
 
   return (
     <input
       placeholder={placeholder}
       value={useInternal ? state : value}
       onChange={(e) => {
-        setInternal(e.target.value);
-        onChange(e.target.value);
+        const value = e.target.value;
+        setInternal(value);
+
+        if (debounce) {
+          setTmpInternal(true);
+          clearTimeout(ref.timeout);
+          ref.timeout = setTimeout(() => {
+            onChange(value);
+          }, debounce);
+        } else {
+          onChange(value);
+        }
       }}
       style={{
         borderRadius: 2.5,
