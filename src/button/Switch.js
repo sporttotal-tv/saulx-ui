@@ -1,24 +1,55 @@
-import React from 'react'
-//<Switch checked={!!elValue} onChange={this.onChange} />
-export default ({ checked, onChange }) => {
+import React from "react";
+import Base from "../text/Base";
+
+export default ({
+  color = "rgba(0,0,0,0.1)",
+  checked,
+  onChange,
+  knobColor = "black",
+  style,
+  label,
+}) => {
   return (
     <div
       onClick={() => {
-        onChange(!checked)
+        onChange(!checked);
       }}
       style={{
-        width: 30,
-        padding: 5,
-        border: '1px solid black',
+        display: "flex",
+        cursor: "pointer",
+        alignItems: "center",
+        ...style,
       }}
     >
       <div
         style={{
-          width: 15,
-          height: 15,
-          backgroundColor: checked ? 'black' : 'lightgrey',
+          width: 35,
+          borderRadius: "15px",
+          backgroundColor: checked ? color : null,
+          padding: 2,
+          border: "1px solid rgba(0,0,0,0.2)",
         }}
-      ></div>
+      >
+        <div
+          style={{
+            transition: "opacity 0.2s, transform 0.2s",
+            width: 10,
+            borderRadius: "50%",
+            transform: `translate3d(${checked ? 19 : 0}px, 0px, 0)`,
+            height: 10,
+            opacity: checked ? 1 : 0.4,
+            backgroundColor: knobColor,
+          }}
+        ></div>
+      </div>
+      <Base
+        style={{
+          marginLeft: 5,
+          fontSize: 12,
+        }}
+      >
+        {label || ""}
+      </Base>
     </div>
-  )
-}
+  );
+};
