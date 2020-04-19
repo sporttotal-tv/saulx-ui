@@ -20,6 +20,9 @@ const Button = ({ style, children, to, active, onClick }) => {
       style={{
         cursor: "pointer",
         padding: 5,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         fontFamily:
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
         fontSize: 12,
