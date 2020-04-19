@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ style, value, options }) => {
+export default ({ style, value, options, onChange }) => {
   return (
     <select
       style={{
@@ -18,7 +18,7 @@ export default ({ style, value, options }) => {
         ...style,
       }}
       value={value || undefined}
-      onChange={this.onChange}
+      onChange={onChange}
     >
       {options.map((option, i) => (
         <option key={i} value={option}>
