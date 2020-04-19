@@ -18,7 +18,7 @@ export default ({ style, value, options, onChange }) => {
         ...style,
       }}
       value={value || undefined}
-      onChange={onChange}
+      onChange={(e) => onChange(e.target.value)}
     >
       {options.map((option, i) => (
         <option key={i} value={option}>
