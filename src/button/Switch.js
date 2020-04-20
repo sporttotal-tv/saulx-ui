@@ -8,6 +8,7 @@ export default ({
   knobColor = "black",
   style,
   label,
+  noLabel,
 }) => {
   return (
     <div
@@ -42,14 +43,16 @@ export default ({
           }}
         ></div>
       </div>
-      <Base
-        style={{
-          marginLeft: 5,
-          fontSize: 12,
-        }}
-      >
-        {label || ""}
-      </Base>
+      {noLabel ? null : (
+        <Base
+          style={{
+            marginLeft: 5,
+            fontSize: 12,
+          }}
+        >
+          {label || ""}
+        </Base>
+      )}
     </div>
   );
 };
