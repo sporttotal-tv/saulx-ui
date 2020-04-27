@@ -7,9 +7,10 @@ const RemoveButton = ({ id, item, style, color, onClick, icon, children }) => {
       <div
         onClick={onClick}
         style={{
+          // height: 25,
           cursor: "pointer",
-          paddingLeft: 5,
-          paddingRight: 5,
+          paddingLeft: 7.5,
+          paddingRight: 7.5,
           paddingTop: 5,
           paddingBottom: 5,
           display: "flex",
@@ -24,10 +25,10 @@ const RemoveButton = ({ id, item, style, color, onClick, icon, children }) => {
           ...style,
         }}
       >
-        <Text style={{ fontWeight: 300, fontSize: 10, marginRight: 3 }}>
+        <Text style={{ fontWeight: 300, fontSize: 11, marginRight: 3 }}>
           {icon}
         </Text>
-        <Text style={{ fontSize: 10, fontWeight: "bold" }}>{children}</Text>
+        <Text style={{ fontSize: 11, fontWeight: "bold" }}>{children}</Text>
       </div>
     </>
   );
