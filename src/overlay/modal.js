@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHub } from "@saulx/hub";
 import Title from "../text/title";
 import Button from "../button/Button";
@@ -27,6 +27,24 @@ const Close = () => {
 
 const Modal = ({ title, children, confirm, cancel }) => {
   const hub = useHub();
+
+  useEffect(() => {
+    const c = (e) => {
+      if (e.keyCode === 13) {
+        hub.set("device.overlay", false);
+        if (typeof confirm === "function") {
+          confirm(e);
+        } else {
+          confirm.onConfirm(e);
+        }
+      }
+    };
+    document.addEventListener("keydown", c);
+    return () => {
+      document.removeEventListener("keydown", c);
+    };
+  }, []);
+
   const footer =
     confirm || cancel ? (
       <div
