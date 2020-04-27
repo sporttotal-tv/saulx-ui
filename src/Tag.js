@@ -30,6 +30,7 @@ export default ({
   return (
     <div
       style={{
+        // height: size === 'large' ? 25 : 'auto',
         width: "auto",
         display: "flex",
         alignItems: "center",
@@ -46,8 +47,8 @@ export default ({
       {onClose ? (
         <div
           style={{
-            height: 15,
-            width: 15,
+            height: 11,
+            width: 11,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

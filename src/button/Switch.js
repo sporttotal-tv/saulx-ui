@@ -27,7 +27,7 @@ export default ({
           borderRadius: "15px",
           padding: 2,
           border: checked
-            ? "1px solid rgba(0,0,0,1)"
+            ? "1px solid rgba(0,0,0,0.5)"
             : "1px solid rgba(0,0,0,0.2)",
         }}
       >
