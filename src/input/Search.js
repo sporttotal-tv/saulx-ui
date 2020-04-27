@@ -48,7 +48,6 @@ Search.Icon = ({ style }) => {
       style={{
         marginLeft: 2.5,
         marginRight: 7.5,
-        opacity: 0.75,
         ...style
       }}
     />
