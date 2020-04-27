@@ -6,9 +6,17 @@
     "dev": "aristotle index.js",
     "build": "aristotle index.js dist/index.js"
   },
+  "prettier": "@saulx/prettier-config",
+  "eslintConfig": {
+    "extends": "@saulx/eslint-config"
+  },
   "devDependencies": {
     "@saulx/aristotle": "^1.6.19",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "eslint": "^6.5.1",
+    "prettier": "^1.18.2",
+    "@saulx/eslint-config": "https://github.com/atelier-saulx/eslint-config",
+    "@saulx/prettier-config": "https://github.com/atelier-saulx/prettier-config"
   },
   "dependencies": {
     "react": "^16.13.0",
