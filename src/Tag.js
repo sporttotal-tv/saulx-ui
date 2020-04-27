@@ -31,10 +31,10 @@ export default ({
     <div
       style={{
         width: "auto",
-        paddingLeft: 5,
         display: "flex",
         alignItems: "center",
-        paddingRight: 5,
+        paddingRight: size === "large" ? 7.5 : 5,
+        paddingLeft: size === "large" ? 7.5 : 5,
         fill: color,
         paddingTop: size === "small" ? 2.5 : size === "large" ? 5 : 0,
         paddingBottom: size === "small" ? 2.5 : size === "large" ? 5 : 0,
@@ -65,7 +65,7 @@ export default ({
         style={{
           alignItems: "center",
           display: "flex",
-          fontSize: 10,
+          fontSize: size === "large" ? 11 : 10,
           color,
           fontWeight: "bold",
         }}
