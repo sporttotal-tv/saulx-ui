@@ -24,20 +24,27 @@ export default ({
     >
       <div
         style={{
-          width: 35,
-          borderRadius: "15px",
-          backgroundColor: checked ? color : null,
-          padding: 2,
-          border: "1px solid rgba(0,0,0,0.2)",
+          width: 40,
+          position: "relative",
         }}
       >
         <div
           style={{
+            width: 40,
+            height: 11,
+            backgroundColor: checked ? color : "rgba(0,0,0,0.1)",
+          }}
+        ></div>
+        <div
+          style={{
+            top: -1,
+            left: 0,
+            position: "absolute",
             transition: "opacity 0.2s, transform 0.2s",
-            width: 10,
-            borderRadius: "50%",
-            transform: `translate3d(${checked ? 19 : 0}px, 0px, 0)`,
-            height: 10,
+            width: 14,
+            // borderRadius: "50%",
+            transform: `translate3d(${checked ? 26 : 0}px, 0px, 0)`,
+            height: 14,
             opacity: checked ? 1 : 0.4,
             backgroundColor: knobColor,
           }}
