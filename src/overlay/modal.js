@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHub } from "@saulx/hub";
 import Title from "../text/title";
 import Button from "../button/Button";
@@ -18,7 +18,7 @@ const Close = () => {
         hub.set("device.overlay", false);
       }}
     >
-      <svg width="14" height="14" viewBox="0 0 24 24">
+      <svg width="12" height="12" viewBox="0 0 24 24">
         <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
       </svg>
     </div>
@@ -27,11 +27,29 @@ const Close = () => {
 
 const Modal = ({ title, children, confirm, cancel }) => {
   const hub = useHub();
+
+  useEffect(() => {
+    const c = (e) => {
+      if (e.keyCode === 13) {
+        hub.set("device.overlay", false);
+        if (typeof confirm === "function") {
+          confirm(e);
+        } else {
+          confirm.onConfirm(e);
+        }
+      }
+    };
+    document.addEventListener("keydown", c);
+    return () => {
+      document.removeEventListener("keydown", c);
+    };
+  }, []);
+
   const footer =
     confirm || cancel ? (
       <div
         style={{
-          marginTop: 10,
+          marginTop: 20,
           display: "flex",
           justifyContent: "flex-end",
         }}
