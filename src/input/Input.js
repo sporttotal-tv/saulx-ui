@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-export default ({ style, onChange, value, placeholder, debounce }) => {
+export default ({ style, type, onChange, value, placeholder, debounce }) => {
   const [state, setInternal] = useState();
   const ref = useRef();
   const [tmpInternal, setTmpInternal] = useState(false);
@@ -15,12 +15,12 @@ export default ({ style, onChange, value, placeholder, debounce }) => {
 
   return (
     <input
+      type={type}
       placeholder={placeholder}
       value={useInternal ? state : value}
       onChange={(e) => {
         const value = e.target.value;
         setInternal(value);
-
         if (debounce) {
           setTmpInternal(true);
           clearTimeout(ref.timeout);
