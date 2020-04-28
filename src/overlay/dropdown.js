@@ -124,7 +124,7 @@
 // };
 
 // export default (props, children) => {
-//   hub.set("device.dropdown", {
+//   props.hub.set("device.overlay", {
 //     fade: true,
 //     position: "center",
 //     component: <Modal {...props}>{children}</Modal>,
