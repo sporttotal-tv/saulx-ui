@@ -96,8 +96,8 @@ const Modal = ({ title, children, confirm, cancel, hub }) => {
         maxWidth: 'calc(100%-100px)',
         height: 'auto',
         maxHeight: 'calc(100%-100px)',
-        border: '1px solid black',
-        padding: 10,
+        border: '1px solid rgba(0,0,0,0.2)',
+        padding: 20,
         opacity: visible ? 1 : 0,
         transition: 'opacity 0.3s, transform 0.15s',
         transform: visible ? 'scale(1)' : 'scale(0.9)'

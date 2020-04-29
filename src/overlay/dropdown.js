@@ -12,7 +12,7 @@ const ArrowUp = ({ style, arrowX }) => {
         ...style
       }}
     >
-      <path fill="rgba(0,0,0,1)" d="M0 12 L9 0 L18 12 L0 12" />
+      <path fill="rgba(0,0,0,0.2)" d="M0 12 L9 0 L18 12 L0 12" />
       <path fill="white" d="M1 12 L9 1 L17 12 L1 12" />
     </svg>
   )
@@ -111,7 +111,7 @@ const Dropdown = ({
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          border: '1px solid rgba(0,0,0,1)',
+          border: '1px solid rgba(0,0,0,0.2)',
           maxHeight:
             direction === 'bottom' ? top - height - 100 : height - top - 100,
           maxWidth: width - 100,
@@ -127,7 +127,7 @@ const Dropdown = ({
 export default (props, children) => {
   let size = 0
   props.hub.set('device.overlay', {
-    fade: true,
+    fade: props.fade === void 0 || props.fade ? true : false,
     component: (
       <Dropdown size={size} {...props}>
         {children}

@@ -1,9 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRpc, useHub } from '@saulx/hub'
 
 export default () => {
   const overlay = useRpc('device.overlay')
   const hub = useHub()
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    setVisible(!!overlay)
+  }, [overlay])
 
   useEffect(() => {
     const esc = e => {
@@ -49,7 +54,9 @@ export default () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: fade ? 'rgba(255,255,255,0.8)' : null
+          transition: 'background 0.15s',
+          backgroundColor:
+            fade && visible ? 'rgba(250,251,252, 0.9)' : 'rgba(0,0,0,0)'
         }}
       >
         {close}
