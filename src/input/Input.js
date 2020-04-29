@@ -12,7 +12,6 @@ export default ({
   const [state, setInternal] = useState(defaultValue)
   const ref = useRef()
   const [tmpInternal, setTmpInternal] = useState(false)
-
   const useInternal = tmpInternal || value === undefined
 
   useEffect(() => {
