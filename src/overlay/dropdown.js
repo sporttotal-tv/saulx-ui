@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useHub } from '@saulx/hub'
 
 const ArrowUp = ({ style, arrowX }) => {
   return (
@@ -63,6 +64,7 @@ const Dropdown = ({
   size
 }) => {
   const ref = useRef()
+  const hub = useHub()
   const [visible, setVisible] = useState(false)
   const [left, setX] = useState(0)
   const [top, setY] = useState(0)
@@ -100,6 +102,18 @@ const Dropdown = ({
       direction = 'top'
     }
   }
+
+  useEffect(() => {
+    const c = e => {
+      if (e.keyCode === 13) {
+        hub.set('device.overlay', false)
+      }
+    }
+    document.addEventListener('keydown', c)
+    return () => {
+      document.removeEventListener('keydown', c)
+    }
+  }, [])
 
   useEffect(() => {
     // now put it nice
