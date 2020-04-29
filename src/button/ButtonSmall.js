@@ -1,5 +1,5 @@
-import React from "react";
-import Text from "../text/Base";
+import React from 'react'
+import Text from '../text/Base'
 
 const RemoveButton = ({ id, item, style, color, onClick, icon, children }) => {
   return (
@@ -8,30 +8,30 @@ const RemoveButton = ({ id, item, style, color, onClick, icon, children }) => {
         onClick={onClick}
         style={{
           // height: 25,
-          cursor: "pointer",
+          cursor: 'pointer',
           paddingLeft: 7.5,
           paddingRight: 7.5,
           paddingTop: 5,
           paddingBottom: 5,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           backgroundColor: color,
-          transition: "color 0.2s, background-color 0.2s",
-          ":hover": {
-            backgroundColor: "black",
-            color: "white",
+          transition: 'color 0.2s, background-color 0.2s',
+          ':hover': {
+            backgroundColor: 'black',
+            color: 'white'
           },
-          ...style,
+          ...style
         }}
       >
         <Text style={{ fontWeight: 300, fontSize: 11, marginRight: 3 }}>
           {icon}
         </Text>
-        <Text style={{ fontSize: 11, fontWeight: "bold" }}>{children}</Text>
+        <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{children}</Text>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default RemoveButton;
+export default RemoveButton
