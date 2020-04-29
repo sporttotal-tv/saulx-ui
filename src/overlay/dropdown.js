@@ -72,7 +72,7 @@ const Dropdown = ({
       if (targetRect) {
         x = tmpX - targetRect.width / 2 - objectSize.width / 2
         tMiddleX = tmpX - targetRect.width / 2
-        y = tmpY + targetRect.height
+        y = tmpY + targetRect.height + 5
       }
     }
 
@@ -87,8 +87,6 @@ const Dropdown = ({
 
     return () => {}
   }, [ref, size, tmpY, tmpX])
-
-  console.log('???', top, left)
 
   return (
     <div
