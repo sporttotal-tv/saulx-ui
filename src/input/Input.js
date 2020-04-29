@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from 'react'
 
 export default ({
   style,
+  type,
   onChange,
   value,
-  defaultValue,
   placeholder,
-  debounce
+  debounce,
+  defaultValue
 }) => {
   const [state, setInternal] = useState(defaultValue)
   const ref = useRef()
@@ -22,12 +23,12 @@ export default ({
 
   return (
     <input
+      type={type}
       placeholder={placeholder}
       value={useInternal ? state : value}
       onChange={e => {
         const value = e.target.value
         setInternal(value)
-
         if (debounce) {
           setTmpInternal(true)
           clearTimeout(ref.timeout)
