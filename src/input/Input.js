@@ -7,7 +7,8 @@ export default ({
   value,
   placeholder,
   debounce,
-  defaultValue
+  defaultValue,
+  autoFocus
 }) => {
   const [state, setInternal] = useState(defaultValue)
   const ref = useRef()
@@ -47,6 +48,7 @@ export default ({
   return (
     <input
       type={type}
+      autoFocus={autoFocus}
       placeholder={placeholder}
       value={useInternal ? state : value}
       onChange={e => {

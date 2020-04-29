@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export default ({ style, children, singleLine, onClick }) => {
   if (singleLine) {
@@ -9,16 +9,17 @@ export default ({ style, children, singleLine, onClick }) => {
           fontFamily:
             '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
           fontSize: 12,
-          whiteSpace: "nowrap",
-          textOverflow: "ellipsis",
-          overflow: "hidden",
-          width: "100%",
-          ...style,
+          whiteSpace: 'nowrap',
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+          width: '100%',
+          cursor: onClick ? 'pointer' : null,
+          ...style
         }}
       >
         {children}
       </div>
-    );
+    )
   } else {
     return (
       <div
@@ -27,11 +28,12 @@ export default ({ style, children, singleLine, onClick }) => {
           fontFamily:
             '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
           fontSize: 12,
-          ...style,
+          cursor: onClick ? 'pointer' : null,
+          ...style
         }}
       >
         {children}
       </div>
-    );
+    )
   }
-};
+}
