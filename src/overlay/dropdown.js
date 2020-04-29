@@ -96,7 +96,7 @@ const Dropdown = ({
         top,
         left,
         opacity: visible ? 1 : 0,
-        transition: 'opacity 0.3s, transform 0.15s',
+        transition: 'opacity 0.25s, transform 0.125s',
         transform: visible ? 'scale(1)' : 'scale(0.9)',
         position: 'fixed',
         display: 'flex',
@@ -120,14 +120,7 @@ const Dropdown = ({
           backgroundColor: 'white'
         }}
       >
-        <div
-          style={{
-            width: 1000
-          }}
-        >
-          XXX dsf wepofjwefpo wefopiwej fweopfjwepojf wepofjwepof jwepofjwe
-          fpoewjf wepofjwepofj wefpoj e
-        </div>
+        {children}
       </div>
     </div>
   )
