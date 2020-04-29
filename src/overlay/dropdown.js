@@ -112,10 +112,7 @@ const Dropdown = ({
     }
 
     if (targetRect) {
-      // tmpX - x
-      // 500
-      // x = 250
-      tMiddleX = tmpX - x
+      tMiddleX = tmpX - x + targetRect.width / 2 - 9
     }
 
     setArrowX(tMiddleX + arrow.x)
