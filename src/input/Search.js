@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Icon from '../icon/Search'
 
-const Input = ({ style, onChange, value, placeholder }) => {
-  const [state, setInternal] = useState()
+const Input = ({ style, onChange, value, placeholder, defaultValue }) => {
+  const [state, setInternal] = useState(defaultValue)
   const useInternal = value === undefined
 
   return (
@@ -25,7 +25,7 @@ const Input = ({ style, onChange, value, placeholder }) => {
   )
 }
 
-const Search = ({ style, onChange, value, placeholder }) => {
+const Search = ({ style, onChange, value, placeholder, defaultValue }) => {
   return (
     <div
       style={{
@@ -38,7 +38,12 @@ const Search = ({ style, onChange, value, placeholder }) => {
       }}
     >
       <Search.Icon />
-      <Input onChange={onChange} value={value} placeholder={placeholder} />
+      <Input
+        onChange={onChange}
+        value={value}
+        placeholder={placeholder}
+        defaultValue={defaultValue}
+      />
     </div>
   )
 }
