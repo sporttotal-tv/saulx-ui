@@ -56,7 +56,7 @@ export default () => {
           alignItems: 'center',
           transition: 'background 0.15s',
           backgroundColor:
-            fade && visible ? 'rgba(250,251,252, 0.9)' : 'rgba(250,251,252, 0)'
+            fade && visible ? 'rgba(250,251,252, 0.75)' : 'rgba(250,251,252, 0)'
         }}
       >
         {close}

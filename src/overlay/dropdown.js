@@ -152,8 +152,8 @@ const Dropdown = ({
             direction === 'bottom' ? top - height - 100 : height - top - 100,
           maxWidth: width - 100,
           backgroundColor: 'white',
-          overflowX: 'scroll',
-          overflowY: 'scroll'
+          overflowX: 'auto',
+          overflowY: 'auto'
         }}
       >
         {children}
