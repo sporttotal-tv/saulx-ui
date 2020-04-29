@@ -92,7 +92,8 @@ const Dropdown = ({
     if (direction === 'top') {
       if (targetRect) {
         // targetRect.width / 2
-        x = tmpX - objectWidth / 2
+        tMiddleX = tmpX - x + targetRect.width / 2 - 9
+        x = tMiddleX - objectWidth / 2
         y = tmpY + targetRect.height + 5
       }
     } else if (direction === 'bottom') {

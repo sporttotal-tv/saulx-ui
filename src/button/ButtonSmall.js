@@ -25,7 +25,7 @@ const RemoveButton = ({ id, item, style, color, onClick, icon, children }) => {
           ...style
         }}
       >
-        <Text style={{ fontWeight: 300, fontSize: 11, marginRight: 3 }}>
+        <Text style={{ fontWeight: 300, fontSize: 12, marginRight: 3 }}>
           {icon}
         </Text>
         <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{children}</Text>
