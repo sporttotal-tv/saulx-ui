@@ -12,6 +12,7 @@ import Overlay from './overlay/Overlay'
 import List from './List'
 import Tag from './Tag'
 import Input from './input/Input'
+import Date from './input/Date'
 import TextArea from './input/TextArea'
 import Search from './input/Search'
 import Options from './input/Options'
@@ -21,6 +22,7 @@ import Switch from './button/Switch'
 import SearchIcon from './icon/Search'
 import CloseIcon from './icon/Close'
 import Icon from './icon/Icon'
+import parseTimestamp from './parseTimestamp'
 
 export {
   Title,
@@ -35,6 +37,7 @@ export {
   Tag,
   List,
   Input,
+  Date,
   Search,
   modal,
   dropdown,
@@ -45,5 +48,6 @@ export {
   // icons
   SearchIcon,
   CloseIcon,
-  Icon
+  Icon,
+  parseTimestamp
 }

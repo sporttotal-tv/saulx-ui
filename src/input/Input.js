@@ -20,13 +20,51 @@ export default ({
     }
   }, [ref])
 
+  let isTime = false
+  let allowedRange
+  if (type === 'minutes') {
+    isTime = true
+    type = 'number'
+    allowedRange = [0, 59]
+  } else if (type === 'hours') {
+    isTime = true
+    type = 'number'
+    allowedRange = [0, 23]
+  } else if (type === 'year') {
+    isTime = true
+    type = 'number'
+    allowedRange = [-9999999999, 99999999999]
+  } else if (type === 'month') {
+    isTime = true
+    type = 'number'
+    allowedRange = [1, 12]
+  } else if (type === 'day') {
+    isTime = true
+    type = 'number'
+    allowedRange = [1, 31]
+  }
+
   return (
     <input
       type={type}
       placeholder={placeholder}
       value={useInternal ? state : value}
       onChange={e => {
-        const value = e.target.value
+        let value = e.target.value
+
+        if (allowedRange && value) {
+          if (
+            !isNaN(value * 1) &&
+            value * 1 <= allowedRange[1] &&
+            value * 1 >= allowedRange[0]
+          ) {
+            value = value * 1
+          } else {
+            setInternal(allowedRange[0])
+            return
+          }
+        }
+
         setInternal(value)
         if (debounce) {
           setTmpInternal(true)
@@ -46,6 +84,7 @@ export default ({
         appearance: 'none',
         padding: 5,
         fontSize: 12,
+        width: isTime ? 55 : null,
         ...style
       }}
     />
