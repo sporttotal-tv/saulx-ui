@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
 import Icon from '../icon/Search'
 
-const Input = ({ style, onChange, value, placeholder, defaultValue }) => {
+const Input = ({
+  style,
+  onChange,
+  value,
+  placeholder,
+  defaultValue,
+  autoFocus
+}) => {
   const [state, setInternal] = useState(defaultValue)
   const useInternal = value === undefined
 
   return (
     <input
+      autoFocus={autoFocus}
       placeholder={placeholder}
       value={useInternal ? state : value}
       onChange={e => {
@@ -39,6 +47,7 @@ const Search = ({ style, onChange, value, placeholder, defaultValue }) => {
     >
       <Search.Icon />
       <Input
+        autoFocus
         onChange={onChange}
         value={value}
         placeholder={placeholder}
