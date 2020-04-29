@@ -7,6 +7,7 @@ import Button from './button/Button'
 import Text from './text/Base'
 import Checkbox from './button/Checkbox'
 import modal from './overlay/modal'
+import dropdown from './overlay/dropdown'
 import Overlay from './overlay/Overlay'
 import List from './List'
 import Tag from './Tag'
@@ -36,6 +37,7 @@ export {
   Input,
   Search,
   modal,
+  dropdown,
   Loader,
   Switch,
   TextArea,

@@ -1,46 +1,53 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from 'react'
 
-export default ({ style, onChange, value, placeholder, debounce }) => {
-  const [state, setInternal] = useState();
-  const ref = useRef();
-  const [tmpInternal, setTmpInternal] = useState(false);
+export default ({
+  style,
+  onChange,
+  value,
+  defaultValue,
+  placeholder,
+  debounce
+}) => {
+  const [state, setInternal] = useState(defaultValue)
+  const ref = useRef()
+  const [tmpInternal, setTmpInternal] = useState(false)
 
-  const useInternal = tmpInternal || value === undefined;
+  const useInternal = tmpInternal || value === undefined
 
   useEffect(() => {
-    () => {
-      clearTimeout(ref.timeout);
-    };
-  }, [ref]);
+    return () => {
+      clearTimeout(ref.timeout)
+    }
+  }, [ref])
 
   return (
     <input
       placeholder={placeholder}
       value={useInternal ? state : value}
-      onChange={(e) => {
-        const value = e.target.value;
-        setInternal(value);
+      onChange={e => {
+        const value = e.target.value
+        setInternal(value)
 
         if (debounce) {
-          setTmpInternal(true);
-          clearTimeout(ref.timeout);
+          setTmpInternal(true)
+          clearTimeout(ref.timeout)
           ref.timeout = setTimeout(() => {
-            onChange(value);
-          }, debounce);
+            onChange(value)
+          }, debounce)
         } else {
-          onChange(value);
+          onChange(value)
         }
       }}
       style={{
         // borderRadius: 2.5,
-        border: "1px solid rgba(0,0,0,0.1)",
+        border: '1px solid rgba(0,0,0,0.1)',
         fontFamily:
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-        appearance: "none",
+        appearance: 'none',
         padding: 5,
         fontSize: 12,
-        ...style,
+        ...style
       }}
     />
-  );
-};
+  )
+}
