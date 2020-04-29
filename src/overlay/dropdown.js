@@ -1,132 +1,155 @@
-import React from 'react'
-import { useHub } from '@saulx/hub'
-import Title from '../text/title'
-import Button from '../button/Button'
+import React, { useEffect, useRef, useState } from 'react'
 
-const Close = () => {
-  const hub = useHub()
+const ArrowUp = ({ style, arrowX }) => {
   return (
-    <div
+    <svg
+      width="18"
+      height="12"
+      viewBox="0 0 18 12"
       style={{
-        cursor: 'pointer',
-        width: 20,
-        height: 20,
-        display: 'flex',
-        alignItems: 'center'
-      }}
-      onClick={() => {
-        hub.set('device.overlay', false)
+        zIndex: 1,
+        transform: `translate3d(${arrowX}px, 1px, 0px)`,
+        ...style
       }}
     >
-      <svg width="14" height="14" viewBox="0 0 24 24">
-        <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
-      </svg>
-    </div>
+      <path fill="rgba(0,0,0,1)" d="M0 12 L9 0 L18 12 L0 12" />
+      <path fill="white" d="M1 12 L9 1 L17 12 L1 12" />
+    </svg>
   )
 }
 
-const Modal = ({ title, children, confirm, cancel }) => {
-  const hub = useHub()
-  const footer =
-    confirm || cancel ? (
-      <div
-        style={{
-          marginTop: 10,
-          display: 'flex',
-          justifyContent: 'flex-end'
-        }}
-      >
-        {cancel ? (
-          <Button
-            onClick={e => {
-              hub.set('device.overlay', false)
-              if (typeof cancel === 'function') {
-                cancel(e)
-              } else if (typeof cancel === 'object' && cancel.onCancel) {
-                cancel.onCancel(e)
-              }
-            }}
-          >
-            {(typeof cancel === 'object' && cancel.title) || 'Cancel'}
-          </Button>
-        ) : null}
-        {confirm ? (
-          <Button
-            style={{ marginLeft: 10 }}
-            onClick={e => {
-              hub.set('device.overlay', false)
-              if (typeof confirm === 'function') {
-                confirm(e)
-              } else {
-                confirm.onConfirm(e)
-              }
-            }}
-          >
-            {confirm.title || 'Confirm'}
-          </Button>
-        ) : null}
-      </div>
-    ) : null
+const Dropdown = ({
+  target = { x: 0, y: 0 },
+  direction = 'auto', // top, bottom
+  arrow = { x: 0, y: 0 },
+  children,
+  size
+}) => {
+  const ref = useRef()
+  const [visible, setVisible] = useState(false)
+  const [left, setX] = useState(0)
+  const [top, setY] = useState(0)
+  const [arrowX, setArrowX] = useState(0)
+
+  let tmpX, tmpY
+  let targetRect
+
+  if (target.target && target.target) {
+    tmpX = target.pageX || target.x
+    tmpY = target.pageY || target.y
+  } else if (target.getBoundingClientRect) {
+    // depending on direction
+    const rect = target.getBoundingClientRect()
+    targetRect = rect
+    tmpX = rect.left
+    tmpY = rect.top
+  } else {
+    tmpX = target.x || 0
+    tmpY = target.y || 0
+  }
+
+  const width = global.innerWidth
+  const height = global.innerHeight
+
+  if (direction === 'auto') {
+    if (tmpY > height / 2) {
+      direction = 'bottom'
+    } else {
+      direction = 'top'
+    }
+  }
+
+  useEffect(() => {
+    // now put it nice
+    // set interval check difference :/
+    const objectSize = ref.current.getBoundingClientRect()
+    let x = 0,
+      y = 0
+
+    let tMiddleX
+
+    if (direction === 'top') {
+      if (targetRect) {
+        x = tmpX - targetRect.width / 2 - objectSize.width / 2
+        tMiddleX = tmpX - targetRect.width / 2
+        y = tmpY + targetRect.height
+      }
+    }
+
+    if (x < 60) {
+      x = 60
+    }
+
+    setArrowX(tMiddleX - x + 4.5 + arrow.x)
+    setX(x)
+    setY(y)
+    setVisible(true)
+
+    return () => {}
+  }, [ref, size, tmpY, tmpX])
+
+  console.log('???', top, left)
 
   return (
     <div
       style={{
-        backgroundColor: 'white',
-        width: 600,
-        maxWidth: 'calc(100%-100px)',
-        height: 'auto',
-        maxHeight: 'calc(100%-100px)',
-        border: '1px solid black',
-        padding: 10
+        top,
+        left,
+        opacity: visible ? 1 : 0,
+        transition: 'opacity 0.3s, transform 0.15s',
+        transform: visible ? 'scale(1)' : 'scale(0.9)',
+        position: 'fixed',
+        display: 'flex',
+        flexDirection: 'column'
       }}
     >
+      <ArrowUp arrowX={arrowX} visible={visible} />
       <div
+        ref={ref}
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginBottom: children ? 10 : 0
-        }}
-      >
-        {title ? (
-          <Title
-            style={{
-              color: 'black'
-            }}
-          >
-            {title}
-          </Title>
-        ) : (
-          <div />
-        )}
-        <Close />
-      </div>
-      <div
-        style={{
+          top,
+          left,
+          padding: 20,
           display: 'flex',
           flexDirection: 'column',
-          maxHeight: 'calc(100%-200px)'
+          alignItems: 'center',
+          border: '1px solid rgba(0,0,0,1)',
+          maxHeight:
+            direction === 'bottom' ? top - height - 100 : height - top - 100,
+          maxWidth: width - 100,
+          backgroundColor: 'white'
         }}
       >
         <div
           style={{
-            overflow: 'auto',
-            height: 'auto',
-            maxHeight: 'calc(100vh-200px)'
+            width: 1000
           }}
         >
-          {children}
+          XXX dsf wepofjwefpo wefopiwej fweopfjwepojf wepofjwepof jwepofjwe
+          fpoewjf wepofjwepofj wefpoj e
         </div>
-        {footer}
       </div>
     </div>
   )
 }
 
 export default (props, children) => {
+  let size = 0
   props.hub.set('device.overlay', {
     fade: true,
-    position: 'center',
-    component: <Modal {...props}>{children}</Modal>
+    component: (
+      <Dropdown size={size} {...props}>
+        {children}
+      </Dropdown>
+    )
   })
+  return (nprops, nchildren) => {
+    props.hub.set('device.overlay', {
+      component: (
+        <Dropdown size={++cnt} {...props} {...nprops}>
+          {nchildren || children}
+        </Dropdown>
+      )
+    })
+  }
 }

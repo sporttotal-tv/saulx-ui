@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
-import { useHub } from '@saulx/hub'
+import React, { useEffect, useState } from 'react'
 import Title from '../text/title'
 import Button from '../button/Button'
+import { useHub } from '@saulx/hub'
 
 const Close = () => {
   const hub = useHub()
@@ -25,10 +25,12 @@ const Close = () => {
   )
 }
 
-const Modal = ({ title, children, confirm, cancel }) => {
-  const hub = useHub()
+const Modal = ({ title, children, confirm, cancel, hub }) => {
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
+    setVisible(true)
+
     const c = e => {
       if (e.keyCode === 13) {
         hub.set('device.overlay', false)
@@ -95,7 +97,10 @@ const Modal = ({ title, children, confirm, cancel }) => {
         height: 'auto',
         maxHeight: 'calc(100%-100px)',
         border: '1px solid black',
-        padding: 10
+        padding: 10,
+        opacity: visible ? 1 : 0,
+        transition: 'opacity 0.3s, transform 0.15s',
+        transform: visible ? 'scale(1)' : 'scale(0.9)'
       }}
     >
       <div
@@ -147,4 +152,13 @@ export default (props, children) => {
     position: 'center',
     component: <Modal {...props}>{children}</Modal>
   })
+  return (nprops, nchildren) => {
+    props.hub.set('device.overlay', {
+      component: (
+        <Modal {...props} {...nprops}>
+          {nchildren || children}
+        </Modal>
+      )
+    })
+  }
 }
