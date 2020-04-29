@@ -18,6 +18,24 @@ const ArrowUp = ({ style, arrowX }) => {
   )
 }
 
+const ArrowLeft = ({ style, arrowX }) => {
+  return (
+    <svg
+      width="12"
+      height="18"
+      viewBox="0 0 12 18"
+      style={{
+        zIndex: 1,
+        transform: `translate3d(1px, ${arrowX}px, 0px)`,
+        ...style
+      }}
+    >
+      <path fill="rgba(0,0,0,0.2)" d="M0 9 L12 0 L12 18 L0 9" />
+      <path fill="white" d="M1 9 L12 1 L12 18 L1 9" />
+    </svg>
+  )
+}
+
 const ArrowDown = ({ style, arrowX }) => {
   return (
     <svg
@@ -41,6 +59,7 @@ const Dropdown = ({
   direction = 'auto', // top, bottom
   arrow = { x: 0, y: 0 },
   children,
+  fade,
   size
 }) => {
   const ref = useRef()
@@ -69,7 +88,12 @@ const Dropdown = ({
   const width = global.innerWidth
   const height = global.innerHeight
 
-  if (direction === 'auto') {
+  if (direction === 'right') {
+    if (targetRect) {
+      tmpY = targetRect.top - 15
+      tmpX = targetRect.left + targetRect.width
+    }
+  } else if (direction === 'auto') {
     if (tmpY > height / 2) {
       direction = 'bottom'
     } else {
@@ -102,6 +126,9 @@ const Dropdown = ({
         x = tmpX - objectWidth / 2
         y = tmpY - targetRect.height - 5 - objectHeight
       }
+    } else if (direction === 'right') {
+      x = tmpX + 10
+      y = tmpY
     }
 
     if (x < 25) {
@@ -112,11 +139,21 @@ const Dropdown = ({
       x = width - (objectWidth + 25)
     }
 
-    if (targetRect) {
-      tMiddleX = tmpX - x + targetRect.width / 2 - 9
-    }
+    if (direction === 'right') {
+      if (targetRect) {
+        tMiddleX = tmpY - y + targetRect.height / 2 + 7
+      }
+      if (y < 5) {
+        y = 5
+      }
 
-    setArrowX(tMiddleX + arrow.x)
+      setArrowX(tMiddleX + arrow.x)
+    } else {
+      if (targetRect) {
+        tMiddleX = tmpX - x + targetRect.width / 2 - 9
+      }
+      setArrowX(tMiddleX + arrow.x)
+    }
     setX(x)
     setY(y)
     setVisible(true)
@@ -134,11 +171,14 @@ const Dropdown = ({
         transform: visible ? 'scale(1)' : 'scale(0.9)',
         position: 'fixed',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: direction === 'right' ? 'row' : 'column'
       }}
     >
       {direction === 'top' ? (
         <ArrowUp arrowX={arrowX} visible={visible} />
+      ) : null}
+      {direction === 'right' ? (
+        <ArrowLeft arrowX={arrowX} visible={visible} />
       ) : null}
       <div
         ref={ref}
@@ -153,6 +193,10 @@ const Dropdown = ({
             direction === 'bottom' ? top - height - 100 : height - top - 100,
           maxWidth: width - 100,
           backgroundColor: 'white',
+          boxShadow:
+            fade === false
+              ? 'rgba(0,0,0,0.1) 0px 0px 40px'
+              : 'rgba(0,0,0,0.05) 0px 0px 30px',
           overflowX: 'auto',
           overflowY: 'auto'
         }}

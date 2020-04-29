@@ -92,6 +92,7 @@ const Modal = ({ title, children, confirm, cancel, hub }) => {
     <div
       style={{
         backgroundColor: 'white',
+        boxShadow: 'rgba(0,0,0,0.05) 0px 0px 30px',
         width: 600,
         maxWidth: 'calc(100%-100px)',
         height: 'auto',
