@@ -41,6 +41,7 @@ export default ({
         paddingBottom: size === 'small' ? 2.5 : size === 'large' ? 5 : 0,
         cursor: 'pointer',
         fontWeight: 'bold',
+        fontSize: size === 'small' ? 10 : 11,
         color,
         ...style
       }}
