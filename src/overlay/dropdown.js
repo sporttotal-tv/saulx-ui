@@ -145,12 +145,12 @@ const Dropdown = ({
       y = tmpY
     }
 
-    if (x < 25) {
-      x = 25
+    if (x < 5) {
+      x = 5
     }
 
-    if (x + objectWidth + 25 > width) {
-      x = width - (objectWidth + 25)
+    if (x + objectWidth + 5 > width) {
+      x = width - (objectWidth + 5)
     }
 
     if (direction === 'right') {
