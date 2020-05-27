@@ -15,10 +15,10 @@ export default ({ style, value, options, onChange }) => {
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
         padding: 5,
         fontSize: 12,
-        ...style,
+        ...style
       }}
       value={value || undefined}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={e => onChange(e.target.value)}
     >
       {options.map((option, i) => (
         <option key={i} value={option}>

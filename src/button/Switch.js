@@ -2,7 +2,6 @@ import React from "react";
 import Base from "../text/Base";
 
 export default ({
-  color = "rgba(0,0,0,0.1)",
   checked,
   onChange,
   knobColor = "black",
@@ -26,9 +25,10 @@ export default ({
         style={{
           width: 35,
           borderRadius: "15px",
-          backgroundColor: checked ? color : null,
           padding: 2,
-          border: "1px solid rgba(0,0,0,0.2)",
+          border: checked
+            ? "1px solid rgba(0,0,0,0.5)"
+            : "1px solid rgba(0,0,0,0.2)",
         }}
       >
         <div
