@@ -1,9 +1,15 @@
 import React from 'react'
 import Icon from './Icon'
 
-const Close = ({ style, large }) => {
+const Close = ({ style, onMouseDown, large, onClick }) => {
   return (
-    <Icon size={large ? 12 : 8} style={style} viewBox="0 0 8 8">
+    <Icon
+      onMouseDown={onMouseDown}
+      onClick={onClick}
+      size={large ? 12 : 8}
+      style={style}
+      viewBox="0 0 8 8"
+    >
       <rect
         x="0.121094"
         y="1.87872"

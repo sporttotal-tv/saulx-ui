@@ -18,7 +18,7 @@ const ButtonLight = ({ style, children, to, active, onClick }) => {
           style={{
             cursor: 'pointer',
             fontFamily:
-              '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+              'San Fransisco, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
             fontSize: 16,
             fontWeight: isActive ? 'bold' : 'normal',
             letterSpacing: '0.02em'
@@ -31,7 +31,7 @@ const ButtonLight = ({ style, children, to, active, onClick }) => {
         <Link
           style={{
             fontFamily:
-              '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+              'San Fransisco, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
             fontSize: 16,
             fontWeight: isActive ? 'bold' : 'normal',
             letterSpacing: '0.02em'

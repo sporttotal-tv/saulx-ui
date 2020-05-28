@@ -37,7 +37,9 @@ const ButtonSmall = ({
           ...style
         }}
       >
-        <div style={{ marginRight: 4, marginTop: 1 }}>{icon}</div>
+        {icon ? (
+          <div style={{ marginRight: 4, marginTop: 1 }}>{icon}</div>
+        ) : null}
         <Text
           style={{ fontSize: 12, fontWeight: 'bold', letterSpacing: '-0.02em' }}
         >

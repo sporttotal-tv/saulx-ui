@@ -6,7 +6,7 @@ const Select = ({ checked }) => {
     <div
       style={{
         padding: 2.5,
-        borderRadius: 2,
+        borderRadius: 4,
         backgroundColor: '#EFEFEF',
         border: '1px solid rgba(0,0,0,0.05)'
       }}

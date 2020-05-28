@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Input from './Input'
 import Text from '../text/Base'
-import Button from '../button/Button'
+import Button from '../button/ButtonSmall'
 import { useHub } from '@saulx/hub'
 import parseTimestamp from '../parseTimestamp'
 
@@ -12,7 +12,7 @@ const DateInput = ({ data, setData }) => {
         paddingBottom: 15,
         paddingLeft: 15,
         marginLeft: 15,
-        borderLeft: '1px solid rgba(0,0,0,0.2)'
+        borderLeft: '1px solid rgba(0,0,0,0.1)'
       }}
     >
       <Text
@@ -34,7 +34,7 @@ const DateInput = ({ data, setData }) => {
           value={data.date[0]}
           placeholder="Day"
           type="day"
-          style={{ textAlign: 'center' }}
+          style={{ textAlign: 'center', backgroundColor: 'white !important' }}
           onChange={value => {
             data.date[0] = value
             setData(data)
@@ -42,8 +42,8 @@ const DateInput = ({ data, setData }) => {
         />
         <div
           style={{
-            marginLeft: 5,
-            marginRight: 5
+            marginLeft: 10,
+            marginRight: 10
           }}
         >
           /
@@ -52,7 +52,7 @@ const DateInput = ({ data, setData }) => {
           value={data.date[1]}
           placeholder="Month"
           type="month"
-          style={{ textAlign: 'center' }}
+          style={{ textAlign: 'center', backgroundColor: 'white !important' }}
           onChange={value => {
             data.date[1] = value
             setData(data)
@@ -70,7 +70,7 @@ const DateInput = ({ data, setData }) => {
           value={data.date[2]}
           placeholder="Year"
           type="year"
-          style={{ textAlign: 'center' }}
+          style={{ textAlign: 'center', backgroundColor: 'white !important' }}
           onChange={value => {
             data.date[2] = value
             setData(data)
@@ -116,8 +116,6 @@ export default ({ onChange, value, defaultDate }) => {
     const d = new Date(...arr.filter(v => v !== undefined))
     const ms = d.getTime()
 
-    console.log(d)
-
     if (isNaN(ms)) {
       setError(true)
       setTimeout(() => {
@@ -145,12 +143,12 @@ export default ({ onChange, value, defaultDate }) => {
   return (
     <div
       style={{
-        width: 400
+        width: 550
       }}
     >
       <div
         style={{
-          width: 400,
+          width: 550,
           display: 'flex'
         }}
       >
@@ -173,7 +171,10 @@ export default ({ onChange, value, defaultDate }) => {
             <Input
               placeholder="Hours"
               type="hours"
-              style={{ textAlign: 'center' }}
+              style={{
+                textAlign: 'center',
+                backgroundColor: 'white !important'
+              }}
               value={data.time[0]}
               onChange={value => {
                 data.time[0] = value
@@ -182,8 +183,8 @@ export default ({ onChange, value, defaultDate }) => {
             />
             <div
               style={{
-                marginLeft: 5,
-                marginRight: 5
+                marginLeft: 10,
+                marginRight: 10
               }}
             >
               :
@@ -192,7 +193,10 @@ export default ({ onChange, value, defaultDate }) => {
               placeholder="Minutes"
               type="minutes"
               value={data.time[1]}
-              style={{ textAlign: 'center' }}
+              style={{
+                textAlign: 'center',
+                backgroundColor: 'white !important'
+              }}
               onChange={value => {
                 data.time[1] = value
                 setData(data)
@@ -211,9 +215,9 @@ export default ({ onChange, value, defaultDate }) => {
         }}
       >
         <Button
+          color="black"
           style={{
-            background: 'black',
-            color: 'white',
+            color: 'white !important',
             fontWeight: 'bold',
             border: isError ? '1px solid red' : '1px solid black'
           }}

@@ -7,6 +7,7 @@ export default ({
   value,
   placeholder,
   debounce,
+  backgroundColor,
   defaultValue,
   autoFocus
 }) => {
@@ -80,17 +81,18 @@ export default ({
       }}
       style={{
         // borderRadius: 2.5,
-        backgroundColor: 'rgba(0,0,0,0.05)',
+        border: isTime ? '1px solid rgba(0,0,0,0.1)' : null,
+        backgroundColor: '#fafbfc',
         borderRadius: 4,
         fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+          'San Fransisco, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
         appearance: 'none',
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: 15,
-        paddingRight: 15,
+        paddingTop: isTime ? 5 : 10,
+        paddingBottom: isTime ? 5 : 10,
+        paddingLeft: isTime ? 10 : 15,
+        paddingRight: isTime ? 10 : 15,
         fontSize: 15,
-        width: isTime ? 55 : null,
+        width: isTime ? 85 : null,
         ...style
       }}
     />

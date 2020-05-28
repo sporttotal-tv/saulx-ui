@@ -7,7 +7,7 @@ export default ({ style, children, singleLine, onClick }) => {
         onClick={onClick}
         style={{
           fontFamily:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+            'San Fransisco, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
           fontSize: 12,
           whiteSpace: 'nowrap',
           textOverflow: 'ellipsis',
@@ -26,7 +26,7 @@ export default ({ style, children, singleLine, onClick }) => {
         onClick={onClick}
         style={{
           fontFamily:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+            'San Fransisco, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
           fontSize: 12,
           cursor: onClick ? 'pointer' : null,
           ...style
