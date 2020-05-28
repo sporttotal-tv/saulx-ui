@@ -8,8 +8,7 @@ const ButtonLight = ({ style, children, to, active, onClick }) => {
     <div
       style={{
         display: 'flex',
-        paddingBottom: 3,
-        paddingTop: 3,
+        paddingBottom: 10,
         borderBottom: isActive ? '2px solid black' : '2px solid rgba(0,0,0,0)',
         ...style
       }}
@@ -20,7 +19,9 @@ const ButtonLight = ({ style, children, to, active, onClick }) => {
             cursor: 'pointer',
             fontFamily:
               '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-            fontSize: 14
+            fontSize: 16,
+            fontWeight: isActive ? 'bold' : 'normal',
+            letterSpacing: '0.02em'
           }}
           onClick={onClick}
         >
@@ -31,7 +32,9 @@ const ButtonLight = ({ style, children, to, active, onClick }) => {
           style={{
             fontFamily:
               '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-            fontSize: 14
+            fontSize: 16,
+            fontWeight: isActive ? 'bold' : 'normal',
+            letterSpacing: '0.02em'
           }}
           to={to}
           onClick={onClick}

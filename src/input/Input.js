@@ -80,12 +80,16 @@ export default ({
       }}
       style={{
         // borderRadius: 2.5,
-        border: '1px solid rgba(0,0,0,0.1)',
+        backgroundColor: 'rgba(0,0,0,0.05)',
+        borderRadius: 4,
         fontFamily:
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
         appearance: 'none',
-        padding: 5,
-        fontSize: 12,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 15,
+        paddingRight: 15,
+        fontSize: 15,
         width: isTime ? 55 : null,
         ...style
       }}
