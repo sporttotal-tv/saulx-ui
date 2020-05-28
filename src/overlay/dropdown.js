@@ -1,60 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useHub } from '@saulx/hub'
 
-const ArrowUp = ({ style, arrowX }) => {
-  return (
-    <svg
-      width="18"
-      height="12"
-      viewBox="0 0 18 12"
-      style={{
-        zIndex: 1,
-        transform: `translate3d(${arrowX}px, 1px, 0px)`,
-        ...style
-      }}
-    >
-      <path fill="rgba(0,0,0,0.2)" d="M0 12 L9 0 L18 12 L0 12" />
-      <path fill="white" d="M1 12 L9 1 L17 12 L1 12" />
-    </svg>
-  )
-}
-
-const ArrowLeft = ({ style, arrowX }) => {
-  return (
-    <svg
-      width="12"
-      height="18"
-      viewBox="0 0 12 18"
-      style={{
-        zIndex: 1,
-        transform: `translate3d(1px, ${arrowX}px, 0px)`,
-        ...style
-      }}
-    >
-      <path fill="rgba(0,0,0,0.2)" d="M0 9 L12 0 L12 18 L0 9" />
-      <path fill="white" d="M1 9 L12 1 L12 18 L1 9" />
-    </svg>
-  )
-}
-
-const ArrowDown = ({ style, arrowX }) => {
-  return (
-    <svg
-      width="18"
-      height="12"
-      viewBox="0 0 18 12"
-      style={{
-        zIndex: 1,
-        transform: `translate3d(${arrowX}px, -1px, 0px)`,
-        ...style
-      }}
-    >
-      <path fill="rgba(0,0,0,0.2)" d="M0 1 L9 12 L18 1 L0 1" />
-      <path fill="white" d="M1 0 L9 11 L17 0 L1 0" />
-    </svg>
-  )
-}
-
 const Dropdown = ({
   target = { x: 0, y: 0 },
   direction = 'auto', // top, bottom
@@ -68,7 +14,6 @@ const Dropdown = ({
   const [visible, setVisible] = useState(false)
   const [left, setX] = useState(0)
   const [top, setY] = useState(0)
-  const [arrowX, setArrowX] = useState(0)
 
   let tmpX, tmpY
   let targetRect
@@ -160,13 +105,10 @@ const Dropdown = ({
       if (y < 5) {
         y = 5
       }
-
-      setArrowX(tMiddleX + arrow.x)
     } else {
       if (targetRect) {
         tMiddleX = tmpX - x + targetRect.width / 2 - 9
       }
-      setArrowX(tMiddleX + arrow.x)
     }
     setX(x)
     setY(y)
@@ -188,21 +130,17 @@ const Dropdown = ({
         flexDirection: direction === 'right' ? 'row' : 'column'
       }}
     >
-      {direction === 'top' ? (
-        <ArrowUp arrowX={arrowX} visible={visible} />
-      ) : null}
-      {direction === 'right' ? (
-        <ArrowLeft arrowX={arrowX} visible={visible} />
-      ) : null}
+      {direction === 'top' ? <div style={{ height: 10 }} /> : null}
+      {direction === 'right' ? <div style={{ width: 15 }} /> : null}
       <div
         ref={ref}
         style={{
           transform: 'translate3d(0,0,0px,1px)',
           padding: 20,
+          borderRadius: 4,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          border: '1px solid rgba(0,0,0,0.2)',
           maxHeight:
             direction === 'bottom' ? top - height - 100 : height - top - 100,
           maxWidth: width - 100,
@@ -217,9 +155,7 @@ const Dropdown = ({
       >
         {children}
       </div>
-      {direction === 'bottom' ? (
-        <ArrowDown arrowX={arrowX} visible={visible} />
-      ) : null}
+      {direction === 'bottom' ? <div style={{ height: 10 }} /> : null}
     </div>
   )
 }

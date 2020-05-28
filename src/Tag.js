@@ -7,12 +7,30 @@ const Icon = () => {
     <svg
       width="8"
       height="8"
-      viewBox="0 0 24 24"
+      viewBox="0 0 8 8"
+      fill="none"
       style={{
-        marginRight: 5
+        flexGrow: 'none'
       }}
     >
-      <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
+      <rect
+        x="0.121094"
+        y="1.87872"
+        width="2"
+        height="8"
+        rx="1"
+        transform="rotate(-45 0.121094 1.87872)"
+        fill="white"
+      />
+      <rect
+        x="5.77832"
+        y="0.464539"
+        width="2"
+        height="8"
+        rx="1"
+        transform="rotate(45 5.77832 0.464539)"
+        fill="white"
+      />
     </svg>
   )
 }
@@ -31,14 +49,15 @@ export default ({
     <Base
       style={{
         // height: size === 'large' ? 25 : 'auto',
+        borderRadius: 4,
         width: 'auto',
         display: 'flex',
         alignItems: 'center',
-        paddingRight: size === 'large' ? 7.5 : 5,
-        paddingLeft: size === 'large' ? 7.5 : 5,
+        paddingRight: size === 'large' ? 10 : 5,
+        paddingLeft: size === 'large' ? 10 : 5,
         fill: color,
-        paddingTop: size === 'small' ? 2.5 : size === 'large' ? 5 : 0,
-        paddingBottom: size === 'small' ? 2.5 : size === 'large' ? 5 : 0,
+        paddingTop: size === 'small' ? 2.5 : size === 'large' ? 7.5 : 0,
+        paddingBottom: size === 'small' ? 2.5 : size === 'large' ? 7.5 : 0,
         cursor: 'pointer',
         fontWeight: 'bold',
         fontSize: size === 'small' ? 10 : 12,
@@ -52,6 +71,7 @@ export default ({
           style={{
             height: 11,
             width: 11,
+            marginRight: 5,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'

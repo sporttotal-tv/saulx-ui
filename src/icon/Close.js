@@ -3,11 +3,24 @@ import Icon from './Icon'
 
 const Close = ({ style }) => {
   return (
-    <Icon
-      size={8}
-      style={style}
-      d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
-    />
+    <Icon size={8} style={style} viewBox="0 0 8 8">
+      <rect
+        x="0.121094"
+        y="1.87872"
+        width="2"
+        height="8"
+        rx="1"
+        transform="rotate(-45 0.121094 1.87872)"
+      />
+      <rect
+        x="5.77832"
+        y="0.464539"
+        width="2"
+        height="8"
+        rx="1"
+        transform="rotate(45 5.77832 0.464539)"
+      />
+    </Icon>
   )
 }
 

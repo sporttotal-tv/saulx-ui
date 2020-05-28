@@ -1,11 +1,26 @@
 import React from 'react'
 import Icon from './Icon'
 
-const Search = ({ style }) => {
+const Search = ({ style, color = 'black' }) => {
   return (
-    <Icon
-      style={style}
-      d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"    />
+    <Icon width="15" height="14" viewBox="0 0 15 14" fill="none" style={style}>
+      <path
+        d="M6.43739 11.6667C9.44038 11.6667 11.8748 9.2789 11.8748 6.33336C11.8748 3.38783 9.44038 1 6.43739 1C3.4344 1 1 3.38783 1 6.33336C1 9.2789 3.4344 11.6667 6.43739 11.6667Z"
+        stroke={color}
+        fill="none"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M13.2343 13L10.2777 10.1"
+        stroke={color}
+        fill="none"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Icon>
   )
 }
 

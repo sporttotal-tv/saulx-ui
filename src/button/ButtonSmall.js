@@ -1,7 +1,15 @@
 import React from 'react'
 import Text from '../text/Base'
 
-const RemoveButton = ({ id, item, style, color, onClick, icon, children }) => {
+const ButtonSmall = ({
+  id,
+  item,
+  style,
+  color = '#EFEFEF',
+  onClick,
+  icon,
+  children
+}) => {
   return (
     <>
       <div
@@ -9,29 +17,35 @@ const RemoveButton = ({ id, item, style, color, onClick, icon, children }) => {
         style={{
           // height: 25,
           cursor: 'pointer',
-          paddingLeft: 7.5,
-          paddingRight: 7.5,
-          paddingTop: 5,
-          paddingBottom: 5,
+          paddingLeft: 15,
+          minHeight: 32,
+          maxHeight: 32,
+          paddingRight: 15,
+          paddingTop: 6.5,
+          paddingBottom: 6.5,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: color,
+          borderRadius: 48,
           transition: 'color 0.2s, background-color 0.2s',
           ':hover': {
             backgroundColor: 'black',
-            color: 'white'
+            color: 'white',
+            fill: 'white'
           },
           ...style
         }}
       >
-        <Text style={{ fontWeight: 300, fontSize: 12, marginRight: 3 }}>
-          {icon}
+        <div style={{ marginRight: 4, marginTop: 1 }}>{icon}</div>
+        <Text
+          style={{ fontSize: 12, fontWeight: 'bold', letterSpacing: '-0.02em' }}
+        >
+          {children}
         </Text>
-        <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{children}</Text>
       </div>
     </>
   )
 }
 
-export default RemoveButton
+export default ButtonSmall

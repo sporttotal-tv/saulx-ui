@@ -8,6 +8,7 @@ export default ({ style, children, ...props }) => {
       style={{
         fontWeight: 'bold',
         fontSize: 16,
+        letterSpacing: '0.02em',
         ...style
       }}
     >

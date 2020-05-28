@@ -33,7 +33,14 @@ const Input = ({
   )
 }
 
-const Search = ({ style, onChange, value, placeholder, defaultValue }) => {
+const Search = ({
+  style,
+  onChange,
+  value,
+  placeholder,
+  defaultValue,
+  color
+}) => {
   return (
     <div
       style={{
@@ -45,7 +52,7 @@ const Search = ({ style, onChange, value, placeholder, defaultValue }) => {
         ...style
       }}
     >
-      <Search.Icon />
+      <Search.Icon color={color} />
       <Input
         autoFocus
         onChange={onChange}
@@ -57,9 +64,10 @@ const Search = ({ style, onChange, value, placeholder, defaultValue }) => {
   )
 }
 
-Search.Icon = ({ style }) => {
+Search.Icon = ({ style, color }) => {
   return (
     <Icon
+      color={color}
       style={{
         marginLeft: 2.5,
         marginRight: 7.5,

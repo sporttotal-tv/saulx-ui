@@ -7,7 +7,8 @@ export default ({ style, children, ...props }) => {
       {...props}
       style={{
         fontWeight: 'bold',
-        fontSize: 30,
+        fontSize: 18,
+        letterSpacing: '0.02em',
         ...style
       }}
     >
