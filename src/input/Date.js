@@ -104,9 +104,11 @@ export default ({ onChange, value, defaultDate }) => {
       }
     }
 
+    console.log(def, defaultDate)
+
     // new Date(year, month[, day[, hour[, minutes[, seconds[, milliseconds]]]]]);
     const arr = [
-      1 * data.date[2] || def ? def.date[2] * 1 : now.getFullYear(),
+      1 * data.date[2] || (def ? def.date[2] * 1 : now.getFullYear()),
       isNaN(month) ? (def ? def.date[1] - 1 : now.getMonth()) : month,
       1 * data.date[0] || (def ? def.date[0] : now.getDate()),
       1 * data.time[0] || undefined,
