@@ -1,29 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Title from '../text/title'
-import Button from '../button/Button'
-import { useHub } from '@saulx/hub'
-
-const Close = () => {
-  const hub = useHub()
-  return (
-    <div
-      style={{
-        cursor: 'pointer',
-        width: 20,
-        height: 20,
-        display: 'flex',
-        alignItems: 'center'
-      }}
-      onClick={() => {
-        hub.set('device.overlay', false)
-      }}
-    >
-      <svg width="12" height="12" viewBox="0 0 24 24">
-        <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
-      </svg>
-    </div>
-  )
-}
+import Button from '../button/ButtonSmall'
+import Close from '../icon/Close'
 
 const Modal = ({ title, children, confirm, cancel, hub }) => {
   const [visible, setVisible] = useState(false)
@@ -92,13 +70,13 @@ const Modal = ({ title, children, confirm, cancel, hub }) => {
     <div
       style={{
         backgroundColor: 'white',
-        boxShadow: 'rgba(0,0,0,0.05) 0px 0px 30px',
+        boxShadow: 'rgba(0,0,0,0.1) 0px 0px 40px',
         width: 600,
         maxWidth: 'calc(100%-100px)',
         height: 'auto',
         maxHeight: 'calc(100%-100px)',
-        border: '1px solid rgba(0,0,0,0.2)',
-        padding: 25,
+        borderRadius: 4,
+        padding: 30,
         opacity: visible ? 1 : 0,
         transition: 'opacity 0.3s, transform 0.15s',
         transform: visible ? 'scale(1)' : 'scale(0.9)'
@@ -123,7 +101,7 @@ const Modal = ({ title, children, confirm, cancel, hub }) => {
         ) : (
           <div />
         )}
-        <Close />
+        <Close large />
       </div>
       <div
         style={{

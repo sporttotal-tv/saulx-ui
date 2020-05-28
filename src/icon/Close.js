@@ -1,9 +1,9 @@
 import React from 'react'
 import Icon from './Icon'
 
-const Close = ({ style }) => {
+const Close = ({ style, large }) => {
   return (
-    <Icon size={8} style={style} viewBox="0 0 8 8">
+    <Icon size={large ? 12 : 8} style={style} viewBox="0 0 8 8">
       <rect
         x="0.121094"
         y="1.87872"
