@@ -16,7 +16,10 @@ const Icon = ({
       width={size}
       height={size}
       viewBox={viewBox || '0 0 24 24'}
-      style={style}
+      style={{
+        cursor: onClick ? 'pointer' : null,
+        ...style
+      }}
     >
       {d ? <path d={d} /> : children}
     </svg>

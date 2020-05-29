@@ -101,7 +101,7 @@ const Modal = ({ title, children, confirm, cancel, hub }) => {
         ) : (
           <div />
         )}
-        <Close large />
+        <Close large onClick={() => hub.set('device.overlay', false)} />
       </div>
       <div
         style={{
