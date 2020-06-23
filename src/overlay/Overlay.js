@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRpc, useHub } from '@saulx/hub'
 
-export default () => {
+export default ({ dark }) => {
   const overlay = useRpc('device.overlay')
   const hub = useHub()
   const [visible, setVisible] = useState(false)
@@ -55,8 +55,14 @@ export default () => {
           justifyContent: 'center',
           alignItems: 'center',
           transition: 'background 0.15s',
-          backgroundColor:
-            fade && visible ? 'rgba(250,251,252, 0.75)' : 'rgba(250,251,252, 0)'
+          // backgroundColor: hub.get('device.overlay').backgroundColor || 'rgb(250,251,252)',
+          backgroundColor: dark
+            ? fade && visible
+              ? 'rgba(10,11,12, 0.75)'
+              : 'rgba(10,11,12, 0)'
+            : fade && visible
+            ? 'rgba(250,251,252, 0.75)'
+            : 'rgba(250,251,252, 0)'
         }}
       >
         {close}
