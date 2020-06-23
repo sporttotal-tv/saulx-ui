@@ -54,6 +54,9 @@ const Search = ({
     >
       <Search.Icon color={color} />
       <Input
+        style={{
+          width: '100%'
+        }}
         autoFocus
         onChange={onChange}
         value={value}
