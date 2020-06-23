@@ -51,7 +51,7 @@ export default ({
       type={type}
       autoFocus={autoFocus}
       placeholder={placeholder}
-      value={useInternal ? state : value}
+      value={(useInternal ? state : value) || ''}
       onChange={e => {
         let value = e.target.value
 
