@@ -81,10 +81,12 @@ const DateInput = ({ data, setData }) => {
   )
 }
 
-export default ({ onChange, value, defaultDate }) => {
+console.log('xxxx')
+
+export default ({ onChange, value, defaultDate = Date.now() }) => {
   const hub = useHub()
   // parse initial
-  value = parseTimestamp(value)
+  value = parseTimestamp(value || defaultDate)
   const [data, sData] = useState(value)
   const [isError, setError] = useState()
 
@@ -103,9 +105,6 @@ export default ({ onChange, value, defaultDate }) => {
         def = undefined
       }
     }
-
-    console.log(def, defaultDate)
-
     // new Date(year, month[, day[, hour[, minutes[, seconds[, milliseconds]]]]]);
     const arr = [
       1 * data.date[2] || (def ? def.date[2] * 1 : now.getFullYear()),
