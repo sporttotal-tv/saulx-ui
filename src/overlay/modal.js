@@ -3,7 +3,7 @@ import Title from '../text/title'
 import Button from '../button/ButtonSmall'
 import Close from '../icon/Close'
 
-const Modal = ({ title, children, confirm, cancel, hub }) => {
+const Modal = ({ title, children, confirm, cancel, width = 600, hub }) => {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const Modal = ({ title, children, confirm, cancel, hub }) => {
       style={{
         backgroundColor: 'white',
         boxShadow: 'rgba(0,0,0,0.1) 0px 0px 40px',
-        width: 600,
+        width,
         maxWidth: 'calc(100%-100px)',
         height: 'auto',
         maxHeight: 'calc(100%-100px)',

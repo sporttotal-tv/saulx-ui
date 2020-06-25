@@ -968,10 +968,10 @@
   resolved "https://registry.yarnpkg.com/@saulx/get-package/-/get-package-1.0.7.tgz#87172070016a65ed0a39a9c80a61e1b54a0e8780"
   integrity sha512-3ZzCj+SyHdvdH8p9/yV/qk03A5SSSqtQmNTp/ti9fYE8aTBvSDL2xet5e2oeQmbGx4ctWyc5ny64pvGAxzMcaw==
 
-"@saulx/hub@^2.4.8":
-  version "2.4.8"
-  resolved "https://registry.yarnpkg.com/@saulx/hub/-/hub-2.4.8.tgz#3f4d7cc8ff942be1c13c907685641cdc79e00e78"
-  integrity sha512-B4HjcB26fRRkpE5yB+6u685Pxr0yqzbD3sWgHzTFwhQb9e6UAdaeFSiwXbE006rqPfrnJgw6iWsRhESzfnZ2mw==
+"@saulx/hub@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@saulx/hub/-/hub-3.0.0.tgz#d8548c6c235c91e3e72dc7df88ecd48eec91c02b"
+  integrity sha512-xt51/6ltNdetez02Wyp0+chRyPTatUkGjLbTrl8srhIJ0+1eKNurqLIg0gbP3bsIjHOVSbjBRM7D9ThRsZ+Vqg==
   dependencies:
     chalk "^2.4.2"
     path-to-regexp "^6.1.0"

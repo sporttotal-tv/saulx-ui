@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useRpc, useHub } from '@saulx/hub'
+import { useData, useHub } from '@saulx/hub'
 
 export default ({ dark }) => {
-  const overlay = useRpc('device.overlay')
+  const overlay = useData('device.overlay')
   const hub = useHub()
   const [visible, setVisible] = useState(false)
 

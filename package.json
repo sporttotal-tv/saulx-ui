@@ -19,7 +19,7 @@
     "react-dom": "^16.13.0"
   },
   "dependencies": {
-    "@saulx/hub": "^2.4.8",
+    "@saulx/hub": "^3.0.0",
     "react": "^16.13.0"
   }
 }

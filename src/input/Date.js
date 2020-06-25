@@ -81,8 +81,6 @@ const DateInput = ({ data, setData }) => {
   )
 }
 
-console.log('xxxx')
-
 export default ({ onChange, value, defaultDate = Date.now() }) => {
   const hub = useHub()
   // parse initial
