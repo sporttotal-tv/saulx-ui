@@ -19,11 +19,15 @@ const Modal = ({ title, children, confirm, cancel, width = 600, hub }) => {
         }
       }
     }
-    document.addEventListener('keydown', c)
-    return () => {
-      document.removeEventListener('keydown', c)
+    if (confirm) {
+      document.addEventListener('keydown', c)
     }
-  }, [])
+    return () => {
+      if (confirm) {
+        document.removeEventListener('keydown', c)
+      }
+    }
+  }, [confirm])
 
   const footer =
     confirm || cancel ? (
