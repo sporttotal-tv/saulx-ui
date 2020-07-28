@@ -1,6 +1,6 @@
 {
   "name": "@saulx/ui",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "./src",
   "scripts": {
     "dev": "aristotle index.js",
