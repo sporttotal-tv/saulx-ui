@@ -11,7 +11,7 @@
     "extends": "@saulx/eslint-config"
   },
   "devDependencies": {
-    "@saulx/aristotle": "^1.6.19",
+    "@sporttotal/aristotle": "^1.6.19",
     "@saulx/eslint-config": "https://github.com/atelier-saulx/eslint-config",
     "@saulx/prettier-config": "https://github.com/atelier-saulx/prettier-config",
     "eslint": "^6.5.1",
@@ -19,7 +19,7 @@
     "react-dom": "^16.13.0"
   },
   "dependencies": {
-    "@saulx/hub": "^3.0.0",
+    "@sporttotal/hub": "^3.0.0",
     "react": "^16.13.0"
   }
 }
