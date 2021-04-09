@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHub } from '@saulx/hub'
+import { useHub } from '@sporttotal/hub'
 
 const Button = ({ style, children, to, active, onClick }) => {
   // const isFn = typeof active === "function";

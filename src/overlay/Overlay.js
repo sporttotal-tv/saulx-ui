@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useData, useHub } from '@saulx/hub'
+import { useData, useHub } from '@sporttotal/hub'
 
 export default ({ dark }) => {
   const overlay = useData('device.overlay')

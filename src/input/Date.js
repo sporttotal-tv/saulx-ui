@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Input from './Input'
 import Text from '../text/Base'
 import Button from '../button/ButtonSmall'
-import { useHub } from '@saulx/hub'
+import { useHub } from '@sporttotal/hub'
 import parseTimestamp from '../parseTimestamp'
 
 const DateInput = ({ data, setData }) => {

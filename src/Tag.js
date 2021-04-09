@@ -1,6 +1,6 @@
 import React from 'react'
 import Base from './text/Base'
-import { useHub } from '@saulx/hub'
+import { useHub } from '@sporttotal/hub'
 
 const Icon = () => {
   return (

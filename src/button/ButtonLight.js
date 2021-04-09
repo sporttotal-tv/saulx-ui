@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from '@saulx/hub'
+import { Link } from '@sporttotal/hub'
 
 const ButtonLight = ({ style, children, to, active, onClick }) => {
   const isFn = typeof active === 'function'
