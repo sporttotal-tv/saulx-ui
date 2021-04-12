@@ -1,6 +1,6 @@
 {
   "name": "@sporttotal/ui",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "main": "./src",
   "scripts": {
     "dev": "aristotle index.js",
@@ -19,7 +19,7 @@
     "react-dom": "^16.13.0"
   },
   "dependencies": {
-    "@sporttotal/hub": "^3.0.0",
+    "@sporttotal/hub": "4.0.8",
     "react": "^16.13.0"
   }
 }
